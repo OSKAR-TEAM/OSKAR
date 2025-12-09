@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #000;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #001133 0%, #000 80%);
+    z-index: -1;
+}
+
+/* ماه درخشان */
+.moon {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 220px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 60px #fff,
+        0 0 120px #aaf,
+        0 0 200px #44f;
+    animation: moon-glow 10s ease-in-out infinite alternate;
+}
+
+@keyframes moon-glow {
+    from {
+        box-shadow: 0 0 60px #fff, 0 0 120px #aaf, 0 0 200px #44f;
+    }
+    to {
+        box-shadow: 0 0 80px #fff, 0 0 160px #aaf, 0 0 280px #88f;
+    }
+}
+
+/* ستاره‌های چشمک‌زن */
+.stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="20" cy="30" r="2" fill="white"/><circle cx="80" cy="50" r="1.5" fill="white"/><circle cx="150" cy="20" r="2" fill="white"/><circle cx="50" cy="120" r="1.8" fill="white"/><circle cx="180" cy="100" r="2" fill="white"/><circle cx="100" cy="160" r="1.5" fill="white"/><circle cx="30" cy="180" r="2" fill="white"/></svg>') repeat;
+    opacity: 0.7;
+    animation: twinkle 8s linear infinite;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ذرات متحرک */
+.particles::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        10vw 10vh white,
+        25vw 30vh white,
+        40vw 80vh white,
+        55vw 20vh white,
+        70vw 60vh white,
+        85vw 90vh white,
+        15vw 50vh white,
+        35vw 70vh white,
+        60vw 40vh white,
+        80vw 15vh white;
+    animation: fall 25s linear infinite;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+/* محتوای اصلی */
+.content {
+    text-align: center;
+    z-index: 1;
+    padding: 40px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.top-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px #44f;
+}
+
+.main-title {
+    font-size: 130px;
+    font-weight: 900;
+    margin: 15px 0;
+    text-shadow: 0 0 30px #fff, 0 0 60px #44f;
+}
+
+.hashtag {
+    font-size: 110px;
+    font-weight: 900;
+    margin: 10px 0;
+    color: #aaf;
+    text-shadow: 0 0 25px #fff;
+}
+
+.subtitle {
+    font-size: 30px;
+    margin: 40px 0;
+    color: #88f;
+}
+
+.welcome {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 60px 0 80px;
+    text-shadow: 0 0 20px #fff;
+}
+
+/* باکس‌های لینک‌دار */
+.boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.box {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 50px 30px;
+    border: 4px dashed #fff;
+    border-radius: 40px;
+    max-width: 650px;
+    margin: 0 auto;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 25px rgba(68, 68, 255, 0.3);
+}
+
+.box:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 50px rgba(68, 170, 255, 0.7);
+    border-color: #88f;
+}
+
+.box h2 {
+    font-size: 56px;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 0 0 20px #fff;
+}
+
+/* فوتر */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .main-title { font-size: 90px; }
+    .hashtag { font-size: 80px; }
+    .welcome { font-size: 32px; }
+    .top-title { font-size: 26px; }
+    .subtitle { font-size: 24px; }
+    .box h2 { font-size: 44px; }
+    .moon { width: 140px; height: 140px; top: 10%; }
+    .boxes { gap: 40px; }
+    .footer { font-size: 16px; }
+}
